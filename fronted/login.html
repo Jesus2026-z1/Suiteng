@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title_login">Iniciar Sesión - Sistema de Análisis y Optimización</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login-styles.css">
+</head>
+<body data-page="login">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <i class="fas fa-chart-line"></i>
+                <h1 data-i18n="log_header_title">Sistema de Análisis y Optimización</h1>
+                <p data-i18n="log_header_sub">Inicia sesión para acceder a las herramientas profesionales</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">
+                        <i class="fas fa-user"></i>
+                        <span data-i18n="log_label_user">Usuario</span>
+                    </label>
+                    <input type="text" id="username" name="username" required placeholder="Ingresa tu usuario" data-i18n-placeholder="log_ph_user">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                        <span data-i18n="log_label_password">Contraseña</span>
+                    </label>
+                    <input type="password" id="password" name="password" required placeholder="Ingresa tu contraseña" data-i18n-placeholder="log_ph_password">
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" name="remember">
+                        <span data-i18n="log_remember">Recordarme</span>
+                    </label>
+                    <a href="#" class="forgot-password" data-i18n="log_forgot">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span data-i18n="log_btn_login">Iniciar Sesión</span>
+                </button>
+
+                <div class="login-divider">
+                    <span data-i18n="log_divider">o</span>
+                </div>
+
+                <a href="index.html" class="btn-back">
+                    <i class="fas fa-arrow-left"></i>
+                    <span data-i18n="log_btn_back">Volver al Inicio</span>
+                </a>
+            </form>
+
+            <!-- Footer con toggle de idioma -->
+            <div class="login-footer">
+                <p>
+                    <span data-i18n="log_no_account">¿No tienes una cuenta?</span>
+                    <a href="registro.html" data-i18n="log_register">Regístrate aquí</a>
+                    &nbsp;·&nbsp;
+                    <a href="#" id="lang-toggle">EN</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="login-features">
+            <h3 data-i18n="log_benefits_title">Beneficios de acceder:</h3>
+            <ul>
+                <li><i class="fas fa-check"></i> <span data-i18n="log_b1">Acceso a módulos avanzados de optimización</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="log_b2">Guardar y gestionar tus proyectos</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="log_b3">Exportar resultados en múltiples formatos</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="log_b4">Soporte técnico prioritario</span></li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="i18n.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

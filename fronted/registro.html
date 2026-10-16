@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title_registro">Registro - Sistema de Análisis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login-styles.css">
+</head>
+<body data-page="registro">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <i class="fas fa-user-plus"></i>
+                <h1 data-i18n="reg_header_title">Crear Cuenta</h1>
+                <p data-i18n="reg_header_sub">Regístrate para acceder a las herramientas profesionales</p>
+            </div>
+
+            <form id="registerForm" class="login-form">
+                <div class="form-group">
+                    <label for="nombre_completo">
+                        <i class="fas fa-user"></i>
+                        <span data-i18n="reg_label_fullname">Nombre Completo</span>
+                    </label>
+                    <input type="text" id="nombre_completo" name="nombre_completo" required placeholder="Tu nombre completo" data-i18n-placeholder="reg_ph_fullname">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i>
+                        <span data-i18n="reg_label_email">Email</span>
+                    </label>
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="username">
+                        <i class="fas fa-user-circle"></i>
+                        <span data-i18n="reg_label_username">Nombre de Usuario</span>
+                    </label>
+                    <input type="text" id="username" name="username" required placeholder="Elige un usuario" data-i18n-placeholder="reg_ph_username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                        <span data-i18n="reg_label_password">Contraseña</span>
+                    </label>
+                    <input type="password" id="password" name="password" required placeholder="Mínimo 8 caracteres" data-i18n-placeholder="reg_ph_password">
+                    <small class="password-hint" data-i18n="reg_pwd_hint">Debe contener mayúsculas, minúsculas y números</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm_password">
+                        <i class="fas fa-lock"></i>
+                        <span data-i18n="reg_label_confirm">Confirmar Contraseña</span>
+                    </label>
+                    <input type="password" id="confirm_password" name="confirm_password" required placeholder="Repite tu contraseña" data-i18n-placeholder="reg_ph_confirm">
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" name="terminos" required>
+                        <span data-i18n="reg_terms">Acepto los términos y condiciones</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-user-plus"></i>
+                    <span data-i18n="reg_btn_create">Crear Cuenta</span>
+                </button>
+
+                <div class="login-divider">
+                    <span data-i18n="reg_divider">o</span>
+                </div>
+
+                <a href="login.html" class="btn-back">
+                    <i class="fas fa-arrow-left"></i>
+                    <span data-i18n="reg_btn_have_account">Ya tengo una cuenta</span>
+                </a>
+            </form>
+
+            <div class="login-footer">
+                <p>
+                    <a href="#" id="lang-toggle">EN</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="login-features">
+            <h3 data-i18n="reg_benefits_title">Beneficios de registrarte:</h3>
+            <ul>
+                <li><i class="fas fa-check"></i> <span data-i18n="reg_b1">Acceso gratuito a herramientas básicas</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="reg_b2">Guardar tus proyectos</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="reg_b3">Soporte de la comunidad</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="reg_b4">Actualizaciones gratuitas</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="registro.js"></script>
+</body>
+</html>

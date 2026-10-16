@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title_comentarios">Comentarios y Reseñas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="comentarios-styles.css">
+</head>
+<body data-page="comentarios">
+
+    <!-- Header -->
+    <header class="comentarios-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span data-i18n="logo_text_short">Sistema de Análisis</span>
+            </a>
+            <nav>
+                <a href="index.html" data-i18n="nav_inicio">Inicio</a>
+                <a href="login.html" data-i18n="nav_login">Login</a>
+                <a href="donativos.html" data-i18n="nav_donativos">Donativos</a>
+                <a href="#" id="lang-toggle">EN</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-comentarios">
+        <div class="container">
+            <h1 data-i18n="com_hero_title">Comentarios y Reseñas</h1>
+            <p data-i18n="com_hero_sub">Comparte tu experiencia con nuestra plataforma</p>
+        </div>
+    </section>
+
+    <!-- Estadísticas -->
+    <section class="stats-comentarios">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" id="total-comments">0</span>
+                    <span class="stat-label" data-i18n="com_list_title">Comentarios</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="avg-rating">0.0</span>
+                    <span class="stat-label" data-i18n="com_label_rating">Promedio</span>
+                </div>
+                <div class="stat-item">
+                    <div class="stars-display">☆☆☆☆☆</div>
+                    <span class="stat-label" data-i18n="com_label_rating">Calificación</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Comentarios -->
+    <section class="comments-section">
+        <div class="container">
+            <div class="comments-grid">
+                
+                <!-- Formulario -->
+                <div class="comment-form-container">
+                    <h2 data-i18n="com_form_title">Deja tu Comentario</h2>
+                    <form id="commentForm" class="comment-form">
+                        
+                        <div class="form-group">
+                            <label data-i18n="com_label_rating">Calificación *</label>
+                            <div class="rating">
+                                <input type="radio" name="rating" value="5" id="star5">
+                                <label for="star5">★</label>
+                                <input type="radio" name="rating" value="4" id="star4">
+                                <label for="star4">★</label>
+                                <input type="radio" name="rating" value="3" id="star3">
+                                <label for="star3">★</label>
+                                <input type="radio" name="rating" value="2" id="star2">
+                                <label for="star2">★</label>
+                                <input type="radio" name="rating" value="1" id="star1">
+                                <label for="star1">★</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" data-i18n="com_label_name">Nombre *</label>
+                            <input type="text" id="name" required 
+                                   data-i18n-placeholder="com_ph_name" 
+                                   placeholder="Tu nombre">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" data-i18n="com_label_email">Email *</label>
+                            <input type="email" id="email" required 
+                                   data-i18n-placeholder="com_ph_email" 
+                                   placeholder="tu@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Título (opcional)</label>
+                            <input type="text" id="title" placeholder="Título del comentario">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" data-i18n="com_label_comment">Comentario *</label>
+                            <textarea id="message" rows="5" required 
+                                      data-i18n-placeholder="com_ph_comment" 
+                                      placeholder="Escribe tu comentario..."></textarea>
+                            <small class="char-counter">
+                                <span id="char-count">0</span> / 2000 caracteres
+                            </small>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="anonymous-label">
+                                <input type="checkbox" id="anonymous">
+                                <span>Publicar como anónimo</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-submit" data-i18n="com_btn_submit">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Comentario
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Lista de comentarios -->
+                <div class="comments-list">
+                    <h2 data-i18n="com_list_title">Comentarios Recientes</h2>
+                    
+                    <div id="comments-container">
+                        <div class="loading-message" data-i18n="com_loading">
+                            Cargando comentarios...
+                        </div>
+                    </div>
+
+                    <button class="btn-load-more" id="load-more" data-i18n="com_load_more">
+                        Cargar más comentarios
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="comentarios-footer">
+        <div class="container">
+            <a href="index.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                <span data-i18n="back_home">Volver al Inicio</span>
+            </a>
+            <p data-i18n="footer_copyright_short">© 2024 Sistema de Análisis y Optimización. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="i18n.js"></script>
+    <script src="comentarios.js"></script>
+</body>
+</html>

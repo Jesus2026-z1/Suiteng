@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title_donativos">Donativos - Apoya Nuestro Desarrollo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="donativos-styles.css">
+</head>
+<body data-page="donativos">
+
+    <!-- Header -->
+    <header class="donativos-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span data-i18n="logo_text_short">Sistema de Análisis</span>
+            </a>
+            <nav>
+                <a href="index.html" data-i18n="nav_inicio">Inicio</a>
+                <a href="login.html" data-i18n="nav_login">Login</a>
+                <a href="donativos.html" data-i18n="nav_donativos">Donativos</a>
+                <a href="#" id="lang-toggle">EN</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-donativos">
+        <div class="container">
+            <h1 data-i18n="donv_hero_title">❤️ Haz la Diferencia con tu Donativo</h1>
+            <p class="hero-subtitle" data-i18n="donv_hero_sub">Tu contribución nos ayuda a mantener y mejorar estas herramientas profesionales de forma gratuita</p>
+            
+            <div class="chart-container">
+                <h3 data-i18n="donv_chart_title">Donativos por Mes</h3>
+                <div class="progress-info">
+                    <span><span data-i18n="donv_goal_label">Meta: </span>$10,000 USD</span>
+                    <span><span data-i18n="donv_progress_label">Progreso: </span><span id="progress-percent">0%</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <h2 data-i18n="donv_form_title">❤️ Realiza tu Donativo</h2>
+            <form id="donationForm" class="donation-form">
+                
+                <div class="form-group">
+                    <label data-i18n="donv_amount_label">Monto a donar *</label>
+                    <input type="number" id="amount" required min="1" data-i18n-placeholder="donv_amount_ph" placeholder="Ej: 25">
+                </div>
+
+                <div class="form-group">
+                    <label data-i18n="donv_currency_label">Moneda</label>
+                    <select id="currency">
+                        <option value="USD" data-i18n="donv_currency_usd">USD - Dólar estadounidense</option>
+                        <option value="EUR" data-i18n="donv_currency_eur">EUR - Euro</option>
+                        <option value="MXN" data-i18n="donv_currency_mxn">MXN - Peso mexicano</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label data-i18n="donv_method_label">Método de pago *</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="method" value="paypal" checked>
+                            <span data-i18n="donv_method_paypal">PayPal</span>
+                        </label>                        
+                    </div>
+                </div>
+
+                <div class="form-group" id="crypto-select-group" style="display: none;">
+                    <label data-i18n="donv_crypto_label">Criptomoneda</label>
+                    <select id="crypto-currency">
+                        <option value="BTC">Bitcoin (BTC)</option>
+                        <option value="ETH">Ethereum (ETH)</option>
+                        <option value="USDT">Tether (USDT)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label data-i18n="donv_name_label">Nombre</label>
+                    <input type="text" id="name" data-i18n-placeholder="donv_name_ph" placeholder="Tu nombre (opcional)">
+                </div>
+
+                <div class="form-group">
+                    <label data-i18n="donv_email_label">Email</label>
+                    <input type="email" id="email" data-i18n-placeholder="donv_email_ph" placeholder="tu@email.com (opcional)">
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="anonymous-label">
+                        <input type="checkbox" id="anonymous">
+                        <span data-i18n="donv_anonymous_label">Hacer donativo anónimo</span>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label data-i18n="donv_message_label">Mensaje de apoyo (opcional)</label>
+                    <textarea id="message" rows="3" data-i18n-placeholder="donv_message_ph" placeholder="Deja un mensaje..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit" data-i18n="donv_submit">Donar Ahora</button>
+            </form>
+        </div>
+    </section>
+    
+
+    <!-- Recent Donors -->
+    <section class="recent-donors">
+        <div class="container">
+            <h2 data-i18n="donv_recent_title">🌟 Donantes Recientes</h2>
+            <div class="donors-list" id="donors-list">
+                <!-- Se llena dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section">
+        <div class="container">
+            <h2 data-i18n="don_impact_title">¿En qué se usan los donativos?</h2>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <div class="impact-icon">💻</div>
+                    <h3 data-i18n="don_i1_title">Desarrollo de Software</h3>
+                    <p data-i18n="don_i1_desc">Mantenimiento y mejora continua de las herramientas, corrección de bugs y desarrollo de nuevas características.</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">📚</div>
+                    <h3 data-i18n="don_i2_title">Documentación</h3>
+                    <p data-i18n="don_i2_desc">Creación de tutoriales, guías de usuario y material educativo para facilitar el uso del software.</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">️</div>
+                    <h3 data-i18n="don_i3_title">Infraestructura</h3>
+                    <p data-i18n="don_i3_desc">Servidores, hosting, dominios y herramientas necesarias para mantener el servicio disponible 24/7.</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">👥</div>
+                    <h3 data-i18n="don_i4_title">Comunidad</h3>
+                    <p data-i18n="don_i4_desc">Soporte a la comunidad, foros de ayuda, y organización de eventos y webinars educativos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="donativos-footer">
+        <div class="container">
+            <a href="index.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                <span data-i18n="back_home">Volver al Inicio</span>
+            </a>
+            <p data-i18n="footer_copyright_short">© 2024 Sistema de Análisis y Optimización. Todos los derechos reservados.</p>
+            <p data-i18n="don_footer_msg">Tu generosidad hace posible el software libre y de código abierto.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="i18n.js"></script>
+    <script src="donativos.js"></script>
+</body>
+</html>
